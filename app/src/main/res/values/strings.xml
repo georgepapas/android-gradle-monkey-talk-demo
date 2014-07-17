@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">MonkeytalkDemo</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="button_label">Click me</string>
     <string name="action_settings">Settings</string>
 
 </resources>

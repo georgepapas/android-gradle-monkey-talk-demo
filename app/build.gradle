@@ -1,4 +1,13 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.uphyca.gradle:gradle-android-aspectj-plugin:0.9.5'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'android-aspectj'
 
 android {
     compileSdkVersion 19
@@ -16,9 +25,15 @@ android {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        monkeytalk.initWith(buildTypes.debug)
+        monkeytalk {
+            applicationIdSuffix ".monkey"
+        }
+
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    monkeytalkCompile fileTree(dir: 'monkey-libs', include: ['*.jar'])
 }
